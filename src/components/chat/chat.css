@@ -1,17 +1,18 @@
 .chat {
   flex: 2;
-  border-left: 1px solid #dddddd35;
-  border-right: 1px solid #dddddd35;
+  /* border-left: 1px solid #dddddd35; */
+  /* border-right: 1px solid #dddddd35; */
   height: 100%;
   display: flex;
   flex-direction: column;
 
   .top {
-    padding: 20px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #dddddd35;
+    /* border-bottom: 1px solid #dddddd35; */
+    /* box-shadow: 0 10px 10px -8px rgba(128, 128, 128, 0.281); */
 
     .user {
       display: flex;
@@ -19,8 +20,8 @@
       gap: 20px;
 
       img {
-        width: 60px;
-        height: 60px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         object-fit: cover;
       }
@@ -28,17 +29,17 @@
       .texts {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 2px;
 
         span {
-          font-size: 18px;
-          font-weight: bold;
+          font-size: 20px;
+          font-weight: 900;
         }
 
         p {
-          font-size: 14px;
-          font-weight: 300;
-          color: #ff0000;
+          font-size: 12px;
+          font-weight: 900;
+          color: rgba(0, 0, 0, 0.4);
         }
       }
     }
@@ -57,10 +58,16 @@
   .center {
     padding: 20px;
     flex: 1;
-    overflow: scroll;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background: #0000000d;
+    border-radius: 10px  0  0 10px;
+    -webkit-box-shadow: inset 2px 2px 63px -12px rgba(0,0,0,0.24);
+-moz-box-shadow: inset 2px 2px 63px -12px rgba(0,0,0,0.24);
+box-shadow: inset 2px 2px 63px -12px rgba(0,0,0,0.24);
+
 
     .message {
       max-width: 70%;
