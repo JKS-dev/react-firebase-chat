@@ -13,6 +13,7 @@ import { useChatStore } from "../../lib/chatStore";
 import { useUserStore } from "../../lib/userStore";
 import upload from "../../lib/upload";
 import { format } from "timeago.js";
+import ReactTextareaAutosize from "react-textarea-autosize";
 
 const Chat = () => {
   const [chat, setChat] = useState({ messages: [] });
@@ -31,9 +32,9 @@ const Chat = () => {
   const endRef = useRef(null);
   useEffect(() => {
     if (chat && chat.messages) {
-        endRef.current?.scrollIntoView({ behavior: "smooth" });
+      endRef.current?.scrollIntoView({ behavior: "smooth" });
     }
-}, [chat]);
+  }, [chat]);
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat.messages]);
@@ -106,13 +107,13 @@ const Chat = () => {
       });
     } catch (err) {
       console.log(err);
-    } finally{
-    setImg({
-      file: null,
-      url: "",
-    });
+    } finally {
+      setImg({
+        file: null,
+        url: "",
+      });
 
-    setText("");
+      setText("");
     }
   };
 
@@ -170,8 +171,11 @@ const Chat = () => {
           <img src="./camera.png" alt="" />
           <img src="./mic.png" alt="" />
         </div>
-        <input
-          type="text"
+        <ReactTextareaAutosize
+        className="resizeInput"
+          minRows={1}
+          
+          maxRows={6}
           placeholder={
             isCurrentUserBlocked || isReceiverBlocked
               ? "You cannot send a message"
@@ -180,6 +184,7 @@ const Chat = () => {
           value={text}
           onChange={(e) => setText(e.target.value)}
           disabled={isCurrentUserBlocked || isReceiverBlocked}
+
         />
         <div className="emoji">
           <img
@@ -195,8 +200,10 @@ const Chat = () => {
           className="sendButton"
           onClick={handleSend}
           disabled={isCurrentUserBlocked || isReceiverBlocked}
-        >
-          Send
+        ><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="32" height="32" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+      </svg>
+      
         </button>
       </div>
     </div>

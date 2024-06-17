@@ -17,23 +17,38 @@
   background: rgba(255, 255, 255, 0.3);
   border-radius: 50px;
 }
-/* body {
-  background-image: url("/bg.jpg");
+body {
+  background: url('/bg.svg') repeat center center;
+  background-size: 380px;
+  /* filter: invert(50%) sepia(100%) saturate(5000%) hue-rotate(180deg); */
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   color: white;
-} */
+  /* background-size: contain; */
+  background-color: #070110;
+
+}
 
 .container {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.75);
-  /* backdrop-filter: blur(19px) saturate(180%); */
-  border-radius: 12px;
+  /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=1b1b1b&c2=ffffff17&gt=l&gd=dtt
+/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=070110&c2=ffffff12&gt=l&gd=dtt
+*/
+background: #070110;
+background: linear-gradient(180deg, rgb(7, 1, 16), rgba(255, 255, 255, 0.01));
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  /* backdrop-filter: blur(10px) saturate(180%); */
+  /* border-radius: 12px; */
   /* border: 1px solid rgba(255, 255, 255, 0.125); */
   display: flex;
+
 }
 
 .loading{
