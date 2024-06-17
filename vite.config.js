@@ -7,5 +7,5 @@ export default defineConfig({
     outDir: 'dist',
   },
   publicDir: 'public',
-  base: '/react-firebase-chat/', // Replace with your repository name
+  // base: '/react-firebase-chat/', // Replace with your repository name
 });
