@@ -14,10 +14,12 @@ import { useUserStore } from "../../lib/userStore";
 import upload from "../../lib/upload";
 import { format } from "timeago.js";
 import ReactTextareaAutosize from "react-textarea-autosize";
+import { isMobile } from "react-device-detect";
 
-const Chat = () => {
+
+
+ function Chat(){
   const [chat, setChat] = useState({ messages: [] });
-
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
   const [img, setImg] = useState({
@@ -118,7 +120,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat">
+    <div className={isMobile ? 'chat Mobile' : 'chat Desktop'}>
       <div className="top">
         <div className="user">
           <img src={user?.avatar || "./avatar.png"} alt="" />

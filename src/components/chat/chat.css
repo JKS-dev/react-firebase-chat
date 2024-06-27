@@ -1,19 +1,15 @@
-.chat {
-  flex: 2;
-  border-left: 1px solid #dddddd35;
-  border-right: 1px solid #dddddd35;
-  height: 100%;
+.chat.Desktop {
+  /* border-left: 1px solid #dddddd35; */
+  /* border-right: 1px solid #dddddd35; */
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  width: 65%;
 
 
 
 
   .top {
-    position: fixed;
-    max-width: 900px;
     width: 100%;
     height: 80px;
     content: '';
@@ -75,9 +71,8 @@
   }
 
   .center {
-    max-width: 900px;
-    width: 100vw;
-    padding: 80px 0;
+    width: 100%;
+    
     flex: 1;
     overflow-y: scroll;
     display: flex;
@@ -96,7 +91,258 @@
         .texts {
           p {
             padding: 10px 20px;
-            background-color: #0044f1;
+            /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=f0b363&c2=ff7923&gt=l&gd=dbr
+*/
+            background: #F0B363;
+            background: linear-gradient(315deg, #F0B363, #FF7923);
+            color: white;
+            border-radius: 20px;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            max-width: 60vw;
+            border-top-right-radius: 0px;
+
+
+          }
+        }
+
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .texts {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-left: 10px;
+
+        img {
+          max-width: 60vw;
+          width: 100%;
+          height: 300px;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+
+        p {
+          padding: 10px 20px;
+          max-width: 60vw;
+          background: #6A1E9B;
+          background: linear-gradient(135deg, #6A1E9B, #4803C5);
+          border-radius: 20px;
+          white-space: pre-wrap;
+          overflow-wrap: break-word;
+          border-top-left-radius: 0px;
+        }
+
+        @media (min-width: 601px) {
+
+
+          max-width: 400px;
+          /* Fixed width when screen size is greater than 600px */
+
+        }
+
+        span {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+
+  .bottom {
+
+    bottom: 0;
+    display: flex;
+    float: left;
+    align-items: center;
+    /* border-top: 1px solid #dddddd35; */
+    gap: 20px;
+    width: 100%;
+    position: relative;
+
+    .icons {
+      display: none;
+      gap: 20px;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .resizeInput {
+      width: 100%;
+      /* padding: 1em; */
+      resize: none;
+      flex: 1;
+      background-color: rgb(255, 255, 255);
+      border: none;
+      outline: none;
+      color: black;
+      padding: 20px;
+      border-radius: 25px 25px 0 0;
+      font-size: 16px;
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+
+    .emoji {
+      display: none;
+      position: relative;
+
+      .picker {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+      }
+    }
+
+    .sendButton {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      height: 50px;
+      width: 50px;
+      background-color: #FF6C22;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:disabled {
+        background-color: #5182feb4;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+}
+@media (max-width: 720px) {
+  .chat.Desktop{
+    width: 100%;
+    margin: 0;
+    border-radius: 0 0 0 0;
+    transition-duration: .3s;
+  }
+
+}
+
+.chat.Mobile {
+  /* border-left: 1px solid #dddddd35; */
+  /* border-right: 1px solid #dddddd35; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+
+
+
+  .top {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    content: '';
+    float: left;
+    padding: 20px;
+    /* border-radius: 10px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #2A0944;
+    border-radius: 0 0 10px 10px;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.03);
+    -webkit-box-shadow: inset 0px -2px 135px -46px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: inset 0px -2px 135px -46px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0px -2px 135px -46px rgba(25, 0, 255, 0.15);
+    -webkit-box-shadow: 0px 18px 138px 18px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 18px 138px 18px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 18px 138px 18px rgba(0, 0, 0, 0.5);
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+
+      img {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .texts {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        span {
+          font-size: 20px;
+          font-weight: 900;
+        }
+
+        p {
+          font-size: 12px;
+          font-weight: 900;
+          color: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+
+    .icons {
+      display: none;
+      gap: 20px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .center {
+    width: 100%;
+   margin-top: 20px;
+   padding: 80px 0;
+    flex: 1;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .message {
+      display: flex;
+      gap: 10px;
+      align-self: flex-start;
+
+      &.own {
+        align-self: flex-end;
+
+
+        .texts {
+          p {
+            padding: 10px 20px;
+            /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=f0b363&c2=ff7923&gt=l&gd=dbr
+*/
+            background: #F0B363;
+            background: linear-gradient(315deg, #F0B363, #FF7923);
             color: white;
             border-radius: 20px;
             white-space: pre-wrap;
@@ -135,17 +381,21 @@
         p {
           padding: 10px 20px;
           max-width: 80vw;
-          background-color: rgb(17, 25, 40);
+          background: #6A1E9B;
+          background: linear-gradient(135deg, #6A1E9B, #4803C5);
           border-radius: 20px;
           white-space: pre-wrap;
           overflow-wrap: break-word;
           border-top-left-radius: 0px;
-        }@media (min-width: 601px) {
-           
-         
-          max-width: 400px; /* Fixed width when screen size is greater than 600px */
-        
-      }
+        }
+
+        @media (min-width: 601px) {
+
+
+          max-width: 400px;
+          /* Fixed width when screen size is greater than 600px */
+
+        }
 
         span {
           font-size: 13px;
@@ -156,13 +406,15 @@
 
 
   .bottom {
-    position: fixed;
+
     bottom: 0;
     display: flex;
+    float: left;
     align-items: center;
-    border-top: 1px solid #dddddd35;
+    /* border-top: 1px solid #dddddd35; */
     gap: 20px;
-    max-width: 700px;
+    width: 100%;
+    position: fixed;
 
     .icons {
       display: none;
@@ -176,7 +428,7 @@
     }
 
     .resizeInput {
-      width: 100vw;
+      width: 100%;
       /* padding: 1em; */
       resize: none;
       flex: 1;
@@ -185,9 +437,8 @@
       outline: none;
       color: black;
       padding: 20px;
-      border-radius: 10px 10px 0 0;
+      border-radius: 25px 25px 0 0;
       font-size: 16px;
-
       &:disabled {
         cursor: not-allowed;
       }
@@ -225,4 +476,5 @@
       }
     }
   }
+
 }

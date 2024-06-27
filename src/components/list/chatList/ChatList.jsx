@@ -5,14 +5,42 @@ import { useUserStore } from "../../../lib/userStore";
 import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
 import { useChatStore } from "../../../lib/chatStore";
-
+import { useNavigate } from 'react-router-dom';
+import { useCallback } from "react";
+import { Router } from "react-router-dom";
+import { isMobile } from "react-device-detect";
 const ChatList = () => {
+  const navigate = useNavigate();
   const [chats, setChats] = useState([]);
   const [addMode, setAddMode] = useState(false);
   const [input, setInput] = useState("");
-
   const { currentUser } = useUserStore();
   const { chatId, changeChat } = useChatStore();
+
+//////////////////////////////////////////////////////////////////////////
+
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  const handleResize = useCallback(() => {
+    setScreenWidth(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [handleResize]);
+
+  // const handleClick = () => {
+    
+
+  // const smallScreenFunction = () => {
+  //   navigate('/chats');
+  // };
+
+  // const largeScreenFunction = () => {
+  //   // alert('Large screen function triggered!');
+  // };
+////////////////////////////////////////////////////////////////////////////
 
   useEffect(() => {
     const unSub = onSnapshot(
@@ -53,12 +81,17 @@ const ChatList = () => {
     userChats[chatIndex].isSeen = true;
 
     const userChatsRef = doc(db, "userchats", currentUser.id);
+    const chatsWindow = doc(db, "users", currentUser.id);
 
     try {
       await updateDoc(userChatsRef, {
         chats: userChats,
       });
+      await updateDoc(chatsWindow, {
+        windowId: chat.chatId,
+      });
       changeChat(chat.chatId, chat.user);
+      isMobile && navigate('/chats') 
     } catch (err) {
       console.log(err);
     }
@@ -69,7 +102,7 @@ const ChatList = () => {
   );
 
   return (
-    <div className="chatList">
+    <div className={isMobile ? 'chatList Mobile' : 'chatList Desktop'}>
       <div className="search">
         <div className="searchBar">
           <img src="./search.png" alt="" />

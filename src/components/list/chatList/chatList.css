@@ -1,20 +1,25 @@
-.chatList {
+.chatList.Desktop {
   flex: 1;
   overflow-y: scroll;
+
   .search {
     display: flex;
     align-items: center;
     gap: 20px;
     padding: 20px;
-
+    /* border: solid 2px blue; */
+    width: 100%;
     .searchBar {
-      flex: 1;
-      background-color: rgba(17, 25, 40, 0.5);
+      width: 100%;
+      /* flex: 1; */
+      background-color: rgba(255, 255, 255, 0.1);
       display: flex;
+      /* flex: 3; */
       align-items: center;
       gap: 20px;
       border-radius: 10px;
       padding: 10px;
+      /* border: solid 2px white; */
 
       input {
         background-color: transparent;
@@ -22,6 +27,9 @@
         outline: none;
         color: white;
         flex: 1;
+        /* border: solid 2px red; */
+        position: relative;
+        width: 100%;
       }
 
       img {
@@ -33,10 +41,11 @@
     .add {
       width: 36px;
       height: 36px;
-      background-color: rgba(17, 25, 40, 0.5);
+      background-color: #4803C5;
       padding: 10px;
       border-radius: 10px;
       cursor: pointer;
+      /* flex: 1; */
     }
   }
 
@@ -46,7 +55,12 @@
     gap: 20px;
     padding: 20px;
     cursor: pointer;
-    border-bottom: 1px solid #dddddd35;
+    margin: 10px;
+    background-color: rgba(255, 0, 0, 0.1);
+    backdrop-filter: blur(2px) saturate(120%);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    /* border-bottom: 1px solid #dddddd35; */
 
     img {
       width: 50px;
@@ -56,9 +70,13 @@
     }
 
     .texts {
+      width: 70%;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      text-overflow: ellipsis;
+      /* overflow: hidden; */
+      /* border: solid 2px white; */
 
       span {
         font-weight: 500;
@@ -67,7 +85,137 @@
       p {
         font-size: 14px;
         font-weight: 300;
+      /* border: solid 2px red; */
+      text-overflow: ellipsis;
+      overflow: hidden;
+
       }
     }
   }
+
 }
+@media (max-width: 720px) {
+  .chatList.Desktop{
+    overflow-x: hidden;
+    .search {
+      padding:   20px 12.5px ;
+    }
+    .item {
+      overflow-x: hidden;
+      gap: 20px;
+      padding: 20px 10px;
+      cursor: pointer;
+      margin: 0;
+      background-color:none;
+      backdrop-filter: none;
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid #dddddd35;
+  
+  
+      .texts {
+        width: 70%;
+        }
+      }
+    }
+  
+    
+  }
+
+
+  .chatList.Mobile {
+    flex: 1;
+    overflow-y: scroll;
+  
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      /* border: solid 2px blue; */
+      width: 100%;
+      .searchBar {
+        width: 100%;
+        /* flex: 1; */
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        /* flex: 3; */
+        align-items: center;
+        gap: 20px;
+        border-radius: 10px;
+        padding: 10px;
+        /* border: solid 2px white; */
+  
+        input {
+          background-color: transparent;
+          border: none;
+          outline: none;
+          color: white;
+          flex: 1;
+          /* border: solid 2px red; */
+          position: relative;
+          width: 100%;
+        }
+  
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+  
+      .add {
+        width: 36px;
+        height: 36px;
+        background-color: #4803C5;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        /* flex: 1; */
+      }
+    }
+  
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      cursor: pointer;
+      margin: 10px;
+      background-color: rgba(255, 0, 0, 0.1);
+      backdrop-filter: blur(2px) saturate(120%);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.125);
+      /* border-bottom: 1px solid #dddddd35; */
+  
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+  
+      .texts {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-overflow: ellipsis;
+        /* overflow: hidden; */
+        /* border: solid 2px white; */
+  
+        span {
+          font-weight: 500;
+        }
+  
+        p {
+          font-size: 14px;
+          font-weight: 300;
+        /* border: solid 2px red; */
+        text-overflow: ellipsis;
+        overflow: hidden;
+  
+        }
+      }
+    }
+  
+  }

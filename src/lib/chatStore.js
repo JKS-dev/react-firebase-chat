@@ -1,14 +1,15 @@
 import { create } from "zustand";
 import { useUserStore } from "./userStore";
-
-export const useChatStore = create((set) => ({
+import { persist, createJSONStorage } from 'zustand/middleware'
+export const useChatStore = create(
+  persist((set,get) => ({
   chatId: null,
   user: null,
   isCurrentUserBlocked: false,
   isReceiverBlocked: false,
   changeChat: (chatId, user) => {
     const currentUser = useUserStore.getState().currentUser;
-
+    console.log(chatId)
     // CHECK IF CURRENT USER IS BLOCKED
     if (user.blocked.includes(currentUser.id)) {
       return set({
@@ -40,12 +41,19 @@ export const useChatStore = create((set) => ({
   changeBlock: () => {
     set((state) => ({ ...state, isReceiverBlocked: !state.isReceiverBlocked }));
   },
-  resetChat: () => {
-    set({
-      chatId: null,
-      user: null,
-      isCurrentUserBlocked: false,
-      isReceiverBlocked: false,
-    });
-  },
-}));
+  // resetChat: () => {
+  //   set({
+  //     chatId: null,
+  //     user: null,
+  //     isCurrentUserBlocked: false,
+  //     isReceiverBlocked: false,
+  //   });
+  // },
+}),{
+      partialize: (state) => ({
+        chatId: state.chatId,
+        user: state.user,
+        isCurrentUserBlocked: state.isCurrentUserBlocked,
+        isReceiverBlocked: state.isCurrentUserBlocked,
+      }),
+    }));

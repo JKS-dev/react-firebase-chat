@@ -34,6 +34,8 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
   /*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=1b1b1b&c2=ffffff17&gt=l&gd=dtt
@@ -43,10 +45,10 @@ body {
 */
 background: #070110;
 background: linear-gradient(180deg, rgb(7, 1, 16), rgba(255, 255, 255, 0.01));
-  /* background-color: rgba(255, 255, 255, 0.1); */
-  /* backdrop-filter: blur(10px) saturate(180%); */
-  /* border-radius: 12px; */
-  /* border: 1px solid rgba(255, 255, 255, 0.125); */
+  /* background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(180%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125); */
   display: flex;
 
 }
