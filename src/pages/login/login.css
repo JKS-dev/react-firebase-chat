@@ -1,9 +1,15 @@
+
 .login {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   gap: 100px;
+  padding: 50px;
+  background: rgba(114, 114, 114, 0.2);
+  border: solid 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px) saturate(180%);
+  border-radius: 10px;
 
   .item {
     flex: 1;
@@ -23,8 +29,8 @@
         padding: 20px;
         border: none;
         outline: none;
-        background-color: rgba(17, 25, 40, 0.6);
-        color: white;
+        background-color: rgb(255, 255, 255);
+        color: black;
         border-radius: 5px;
       }
 
@@ -64,6 +70,7 @@
   }
 
   .separator {
+    display: none;
     height: 80%;
     width: 2px;
     background-color: #dddddd35;

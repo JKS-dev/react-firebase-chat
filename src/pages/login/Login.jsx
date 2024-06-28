@@ -129,7 +129,7 @@ const { currentUser, isLoading, fetchUserInfo } = useUserStore();
           </form>
         </div>
         <div className="separator"></div>
-        <div className="item">
+        {/* <div className="item">
           <h2>Create an Account</h2>
           <form onSubmit={handleRegister}>
             <label htmlFor="file">
@@ -147,7 +147,7 @@ const { currentUser, isLoading, fetchUserInfo } = useUserStore();
             <input type="password" placeholder="Password" name="password" />
             <button disabled={loading}>{loading ? "Loading" : "Sign Up"}</button>
           </form>
-        </div>
+        </div> */}
       </div>    
     )}
     <Notification />
