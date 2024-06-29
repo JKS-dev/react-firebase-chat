@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-
+import { resolve } from 'path';
 export default defineConfig({
   plugins: [react()],
   build: {
@@ -8,13 +8,13 @@ export default defineConfig({
     assetsDir: 'assets', // Assets directory
     rollupOptions: {
       input: {
-        main:'./src/main.jsx',
-        chatList: './src/pages/chatList/chatList.jsx',
-        chat: './src/pages/chats/chats.jsx',
-        Login: './src/pages/login/Login.jsx'
+        main: resolve(__dirname, 'index.html'), // Main entry point
+        // chatList: resolve(__dirname, 'chatList.html'), // ChatList page
+        chat: resolve(__dirname, 'chats.html'), // Chat page
+        login: resolve(__dirname, 'login.html') // Login page
       },
     },
   },
-  publicDir: 'public',
+  // publicDir: '/',
   // base: './', // Replace with your repository name
 });
